@@ -26,13 +26,13 @@ export class MediaItemListComponent implements OnInit {
     });
   }
 
-  onMediaItemDelete(mediaItem) {
+  onMediaItemDelete(mediaItem: MediaItem) {
     this.mediaItemService.delete(mediaItem).subscribe(() => {
       this.getMediaItems(this.medium);
     });
   }
 
-  getMediaItems(medium) {
+  getMediaItems(medium: string) {
     this.medium = medium;
     this.mediaItemService.get(medium).subscribe((mediaItems) => {
       this.mediaItems = mediaItems;
