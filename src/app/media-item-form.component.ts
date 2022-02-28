@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import {
   FormGroup,
   FormControl,
@@ -6,6 +6,7 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import { MediaItemService } from "./media-item.service";
+import { lookupListToken } from "./providers";
 
 @Component({
   selector: "mw-media-item-form",
@@ -17,7 +18,8 @@ export class MediaItemFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private mediaItemService: MediaItemService
+    private mediaItemService: MediaItemService,
+    @Inject(lookupListToken) public lookupLists
   ) {}
 
   ngOnInit() {
